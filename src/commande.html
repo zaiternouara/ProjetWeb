@@ -17,6 +17,7 @@
           <p>Size</p>
           <div class="size-item">
             <select onChange="calculatePrice()" id="sizeItem">
+              <option value="0" disabled selected>Select the size</option>
               <option value="20">A5 Landscape </option>
               <option value="40">A4</option>
               <option value="60">A4 Ladscape</option>
@@ -27,6 +28,7 @@
           <p>Paper Type</p>
 
           <select onChange="calculatePrice()" id="paperItem">
+            <option value="0" disabled selected>Select the paper type</option>
             <option value="30">100gsm Uncoated</option>
             <option value="50">120gsm Uncoated</option>
             <option value="60">Art paper Gloss Finish</option>
@@ -36,6 +38,7 @@
         <div class="item">
           <p>Folding</p>
          <select onChange="calculatePrice()" id="foldingItem">
+           <option value="0" disabled selected>Select the folding</option>
             <option value="10">Folded to 4pp A4</option>
             <option value="15">Folded to 4pp A5</option>
             <option value="25">Folded to 4pp A6</option>
@@ -45,7 +48,8 @@
 
         <div class="item">
           <p>Sides Printed</p>
-         <select onChange="calculatePrice()" id="slideItem">
+         <select onChange="calculatePrice()" id="sideItem">
+           <option value="0" disabled selected>Select the side</option>
             <option value="5">Single Sided</option>
             <option value="10">Double Sided</option>
           </select>
@@ -54,7 +58,7 @@
 
         <div class="item">
           <p>Quantity</p>
-          <input type="number" id="quantity" name="quantity" value="1">
+          <input type="number" onChange="calculatePrice()" id="quantity" name="quantity" value="1">
 
            <!--<input type="number" id="quantity" name="quantity" min="0" oninput="validity.valid||(value='');">-->
         </div>
@@ -87,8 +91,8 @@ var hdd = elt.options[elt.selectedIndex].value;
 var elt = document.getElementById("foldingItem");
 var network = elt.options[elt.selectedIndex].value;
 
-var elt = document.getElementById("slideItem");
-var slide = elt.options[elt.selectedIndex].value;
+var elt = document.getElementById("sideItem");
+var side = elt.options[elt.selectedIndex].value;
 
 var quantity = document.getElementById("quantity").value;
 
@@ -96,11 +100,10 @@ var quantity = document.getElementById("quantity").value;
 memory = parseInt(memory);
 hdd = parseInt(hdd);
 network = parseInt(network);
-slide = parseInt(slide);
-//quantity = parseInt(quantity);
+side = parseInt(side);
 
 //calculate total value
-var total = (memory+hdd+network+slide)*quantity;
+var total = (memory+hdd+network+side)*quantity;
 
 //print value to  PicExtPrice
 document.getElementById("PicExtPrice").value=total;
