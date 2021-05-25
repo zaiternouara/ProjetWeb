@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="testbox">
-      <form action="http://192.168.1.3/WebService/public/CreateCard">
+      <form id="myForm" action="http://192.168.1.3/WebService/public/CreateCard">
         <div class="banner">
           <h1>Folded Leaflets</h1>
         </div>
@@ -70,7 +70,7 @@
 
         <div class="btn-block">
 
-          <button type="button" onclick="calculatePrice()">Add to basket</button>
+          <button type="button" onclick="calculatePrice(), su()">Add to basket</button>
           <p>The new calculated price:</p>
 
           <input type="text" id="PicExtPrice" Size=8>
@@ -109,6 +109,9 @@ var total = (memory+hdd+network+side)*quantity;
 document.getElementById("PicExtPrice").value=total;
 
 }
+function su(myForm){
+  var form = document.getElementById("myForm");
+form.reset();}
     </script>
   </body>
 </html>
